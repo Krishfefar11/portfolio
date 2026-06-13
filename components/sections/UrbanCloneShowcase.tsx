@@ -30,7 +30,7 @@ import { staggerContainer, cardReveal, fadeInUp } from "@/lib/animations";
 const ACCENT = "#1AB64F";
 
 const LINKS = {
-  live: "https://urban-company-clone.vercel.app",
+  live: "https://urban-company-clone-taupe.vercel.app",
   api: "https://urban-company-clone.onrender.com",
   github: "https://github.com/Krishfefar11/urban-company-clone",
 };

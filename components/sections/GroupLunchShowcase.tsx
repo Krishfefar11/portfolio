@@ -29,7 +29,7 @@ import { staggerContainer, cardReveal, fadeInUp } from "@/lib/animations";
 /* ─────────────────────────── constants ─────────────────────────── */
 
 const LINKS = {
-  live: "https://group-lunch.vercel.app",
+  live: "https://group-lunch-eta.vercel.app",
   api: "https://group-lunch.onrender.com/api/health",
   github: "https://github.com/Krishfefar11/Group-Lunch",
 };
