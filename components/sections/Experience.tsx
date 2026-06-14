@@ -32,7 +32,7 @@ export default function Experience() {
       <SectionHeading
         overline="My journey"
         title="Experience &"
-        titleGradient="Education"
+        titleGradient="Achievements"
         subtitle="Building expertise through real-world projects, internships, and continuous learning."
       />
 
@@ -133,64 +133,73 @@ export default function Experience() {
                 </motion.div>
               ))}
 
-              {/* Education in timeline */}
-              {EDUCATION.map((edu) => (
-                <motion.div
-                  key={edu.id}
-                  variants={timelineItem}
-                  className="relative pl-12"
-                >
-                  <motion.div
-                    variants={timelineDot}
-                    className="absolute left-0 top-6 w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center shadow-[0_0_15px_rgba(59,130,246,0.4)] flex-shrink-0"
-                  >
-                    <GraduationCap size={13} className="text-white" />
-                  </motion.div>
-
-                  <div className="p-6 rounded-2xl glass border border-white/[0.07] hover:border-blue-400/20 transition-all duration-300 group">
-                    <div className="flex items-start justify-between gap-4 mb-3">
-                      <div>
-                        <h4 className="text-base font-bold text-white group-hover:text-blue-400 transition-colors">
-                          {edu.shortName}
-                        </h4>
-                        <p className="text-blue-400 text-sm font-medium">{edu.degree}</p>
-                      </div>
-                      <span className="flex-shrink-0 px-2.5 py-1 rounded-lg bg-blue-400/10 border border-blue-400/20 text-blue-400 text-xs font-mono font-bold">
-                        {edu.cgpa}
-                      </span>
-                    </div>
-
-                    <div className="flex flex-wrap items-center gap-4 mb-4 text-xs text-slate-500">
-                      <span className="flex items-center gap-1.5">
-                        <Calendar size={11} />
-                        {edu.duration}
-                      </span>
-                      <span className="flex items-center gap-1.5">
-                        <MapPin size={11} />
-                        {edu.location}
-                      </span>
-                    </div>
-
-                    <p className="text-xs text-slate-500 mb-3">Relevant coursework:</p>
-                    <div className="flex flex-wrap gap-2">
-                      {edu.relevant.map((course) => (
-                        <span
-                          key={course}
-                          className="px-2.5 py-1 rounded-lg bg-white/[0.04] border border-white/[0.07] text-xs text-slate-400"
-                        >
-                          {course}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
             </motion.div>
           </div>
         </div>
 
-        {/* ── Right: Achievements ── */}
+        {/* ── Right: Education + Achievements ── */}
         <div className="flex flex-col gap-8">
+
+          {/* Education */}
+          <motion.h3
+            variants={{
+              hidden: { opacity: 0, x: 20 },
+              visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+            }}
+            className="flex items-center gap-3 text-lg font-bold text-white"
+          >
+            <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center">
+              <GraduationCap size={15} className="text-white" />
+            </span>
+            Education
+          </motion.h3>
+
+          <motion.div variants={staggerContainer} className="flex flex-col gap-5">
+            {EDUCATION.map((edu) => (
+              <motion.div
+                key={edu.id}
+                variants={cardReveal}
+                className="group p-6 rounded-2xl glass border border-white/[0.07] hover:border-blue-400/20 transition-all duration-300"
+                whileHover={{ y: -4 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
+                <div className="flex items-start justify-between gap-4 mb-3">
+                  <div>
+                    <h4 className="text-base font-bold text-white group-hover:text-blue-400 transition-colors">
+                      {edu.shortName}
+                    </h4>
+                    <p className="text-blue-400 text-sm font-medium">{edu.degree}</p>
+                  </div>
+                  <span className="flex-shrink-0 px-2.5 py-1 rounded-lg bg-blue-400/10 border border-blue-400/20 text-blue-400 text-xs font-mono font-bold">
+                    {edu.cgpa}
+                  </span>
+                </div>
+                <div className="flex flex-wrap items-center gap-4 mb-4 text-xs text-slate-500">
+                  <span className="flex items-center gap-1.5">
+                    <Calendar size={11} />
+                    {edu.duration}
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <MapPin size={11} />
+                    {edu.location}
+                  </span>
+                </div>
+                <p className="text-xs text-slate-500 mb-3">Relevant coursework</p>
+                <div className="flex flex-wrap gap-2">
+                  {edu.relevant.map((course) => (
+                    <span
+                      key={course}
+                      className="px-2.5 py-1 rounded-lg bg-white/[0.04] border border-white/[0.07] text-xs text-slate-400"
+                    >
+                      {course}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Achievements heading */}
           <motion.h3
             variants={{
               hidden: { opacity: 0, x: 20 },
