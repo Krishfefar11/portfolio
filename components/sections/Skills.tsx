@@ -168,7 +168,7 @@ export default function Skills() {
   const glow = CATEGORY_GLOW[activeCategory];
 
   return (
-    <SectionWrapper id="skills" className="bg-surface/30" number="02" blobVariant="subtle">
+    <SectionWrapper id="skills" className="bg-surface/30 pt-12 md:pt-16" number="02" blobVariant="subtle">
       <SectionHeading
         overline="What I work with"
         title="Technical"
@@ -251,32 +251,6 @@ export default function Skills() {
         </motion.div>
       </div>
 
-      {/* ── Bottom: All skills cloud ── */}
-      <motion.div
-        variants={{
-          hidden: { opacity: 0, y: 30 },
-          visible: { opacity: 1, y: 0, transition: { delay: 0.3, duration: 0.6 } },
-        }}
-        className="mt-16 pt-12 border-t border-white/[0.05]"
-      >
-        <p className="text-center text-slate-500 text-sm font-mono uppercase tracking-widest mb-8">
-          All Technologies
-        </p>
-        <motion.div variants={staggerContainer} className="flex flex-wrap justify-center gap-3">
-          {SKILL_CATEGORIES.flatMap((cat) =>
-            cat.skills.map((skill) => (
-              <motion.span
-                key={`${cat.id}-${skill.name}`}
-                variants={cardReveal}
-                className="px-4 py-2 rounded-xl glass border border-white/[0.06] text-sm text-slate-300 font-medium transition-all duration-200 hover:text-white hover:border-white/[0.15] cursor-default"
-                whileHover={{ scale: 1.05, y: -2 }}
-              >
-                {skill.name}
-              </motion.span>
-            ))
-          )}
-        </motion.div>
-      </motion.div>
     </SectionWrapper>
   );
 }
